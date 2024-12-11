@@ -8,8 +8,8 @@ app = Flask(__name__)
 # Database connection setup (replace with your own connection details)
 conn = psycopg2.connect(
     dbname="portfoliogy_db",  # Replace with your database name
-    user="postgres",             # Replace with your PostgreSQL username
-    password="Astghiksar1",     # Replace with your PostgreSQL password
+    user="arpi",             # Replace with your PostgreSQL username
+    password="userarpi",     # Replace with your PostgreSQL password
     host="localhost",             # Replace with your PostgreSQL host (localhost if local)
     port="5432"                   # Default PostgreSQL port
 )
@@ -66,8 +66,9 @@ def search():
 def template():
     return render_template('template.html')
 
-
-# Login route
+@app.route('/create2')
+def create2():
+    return render_template('create2.html')
 @app.route('/login')
 def login_page():
     return render_template('login.html')
