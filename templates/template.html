@@ -12,12 +12,12 @@
           <div class="logo">PORTFOLIOGY</div>
       </a>
 
-      <ul class="nav-links">
-      <li><a href="/home">Home</a></li>
-      <li><a href="/home#about">About</a></li>
-      <li><a href="/search">Create CV</a></li>
-      <li><a href="/home#faq" class="nav-links">FAQ</a></li>
-      <li><a href="/showcase">Showcase</a></li>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#templates">Create CV</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#footer">Showcase</a></li>
     </ul>
     <a href="/login">
         <button class="login-btn">Login</button>
@@ -49,7 +49,15 @@
         </div>
       </div>
       <div class="template-card creative">
-        <img src="template-2.png" alt="Template Creative 1">
+        <img src="{{ url_for('static', filename='images/template2.png') }}" alt="Template 2">
+        <div class="color-options">
+          <span class="color-dot brown"></span>
+          <span class="color-dot green"></span>
+          <span class="color-dot blue"></span>
+          <span class="color-dot purple"></span>
+        </div>
+          <div class="template-card creative">
+        <img src="{{ url_for('static', filename='images/template2.png') }}" alt="Template 2">
         <div class="color-options">
           <span class="color-dot brown"></span>
           <span class="color-dot green"></span>
@@ -58,7 +66,7 @@
         </div>
       </div>
       <div class="template-card pr">
-        <img src="template-3.png" alt="Template PR 1">
+        <img src="{{ url_for('static', filename='images/template3.png') }}" alt="Template 3">
         <div class="color-options">
           <span class="color-dot brown"></span>
           <span class="color-dot green"></span>

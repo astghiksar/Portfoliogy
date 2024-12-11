@@ -132,6 +132,21 @@ a {
   border-radius: 8px;
   margin-bottom: 10px;
 }
+.view-button {
+  background-color: #6e44ff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.view-button:hover {
+  background-color: #4a28bf;
+}
+
 
 .color-options {
   display: flex;
