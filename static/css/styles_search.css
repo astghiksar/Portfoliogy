@@ -1,0 +1,164 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: #ffffff;
+  background-color: #0d0729;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: #0d0729;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  color: #7D4AED;
+  font-size: 24px;
+  font-weight: bold;
+}
+.logo:hover {
+  color: #7D4AED;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: #fff;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #7D4AED; /* Purple */
+}
+
+.login-btn {
+  padding: 8px 20px;
+  background-color: #fff;
+  color: #0d0729;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #7D4AED;
+  color: #fff;
+}
+
+/* Main Section */
+.main-section {
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  height: calc(100vh - 80px); /* Adjusts height to take full viewport minus navbar height */
+  padding: 50px;
+  gap: 50px;
+}
+
+.search-section {
+  flex: none; /* Allows search section to stay at its natural size */
+  text-align: center; /* Center text within the section */
+}
+
+.search-section h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center; /* Centers the input and button horizontally */
+  align-items: center;
+  gap: 10px; /* Adds space between the input and button */
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #1f2633;
+  color: #c9d1d9;
+  width: 300px; /* Sets a fixed width for the input */
+}
+
+.search-bar input::placeholder {
+  color: #6c757d;
+}
+
+.continue-btn {
+  background-color: #6e44ff;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.continue-btn:hover {
+  background-color: #5936cc;
+}
+
+.back-link {
+  color: #c9d1d9;
+  font-size: 14px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+  color: #6e44ff;
+}
+
+/* Showcase Section */
+.showcase {
+
+  height: 100%;
+  width: 40%;
+}
+
+/* Container to hold the images in a vertical stack */
+.showcase .vertical-images {
+  display: flex;
+  flex-direction: column; /* Stack the images vertically */
+  align-items: center;    /* Center the images horizontally within the container */
+  gap: 3px;              /* Space between the images */
+}
+
+/* Optional styling for individual images */
+.image-item img {
+  width: 73%;            /* Adjust the image width to fill its container */
+  height: auto; /* Maintain aspect ratio */
+  float: right;
+}

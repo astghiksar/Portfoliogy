@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create CV</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+      <a href="/home">
+          <div class="logo">PORTFOLIOGY</div>
+      </a>
+
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#templates">Create CV</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#footer">Showcase</a></li>
+    </ul>
+    <a href="/login">
+        <button class="login-btn">Login</button>
+    </a>
+  </nav>
+
+  <main class="form-section">
+    <h1>Untitled <span class="edit-icon">✎</span></h1>
+
+    <form class="cv-form">
+      <!-- Personal Details -->
+      <section>
+        <h2>Personal Details</h2>
+        <div class="form-group">
+          <input type="text" placeholder="Job Title" />
+          <div class="photo-upload">
+            <img src="default-avatar.png" alt="Upload" />
+            <button type="button">Upload photo</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="First Name" />
+          <input type="email" placeholder="Email" />
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="Last Name" />
+          <input type="text" placeholder="Phone" />
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="Country" />
+          <input type="text" placeholder="City" />
+        </div>
+        <button type="button" class="add-more">+ Add more detail</button>
+      </section>
+
+      <!-- Professional Summary -->
+      <section>
+        <h2>Professional Summary</h2>
+        <textarea placeholder="Write a 4-6 sentence summary about how great you are..."></textarea>
+        <p class="hint">Recruiter tip: write 400-600 characters to increase interview chances</p>
+      </section>
+
+      <!-- Employment History -->
+      <section>
+        <h2>Employment History</h2>
+        <button type="button" class="add-more">+ Add employment</button>
+        <div class="form-group">
+          <input type="text" placeholder="Title/Position" />
+          <input type="text" placeholder="Company" />
+        </div>
+        <div class="form-group">
+          <input type="date" placeholder="Start date" />
+          <input type="date" placeholder="End date" />
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="Location" />
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section>
+        <h2>Education</h2>
+        <button type="button" class="add-more">+ Add education</button>
+        <div class="form-group">
+          <input type="text" placeholder="Degree(s)" />
+          <input type="text" placeholder="Name of school/institution" />
+        </div>
+        <div class="form-group">
+          <input type="date" placeholder="Start date" />
+          <input type="date" placeholder="End date" />
+        </div>
+      </section>
+
+      <!-- Languages -->
+      <section>
+        <h2>Languages</h2>
+        <button type="button" class="add-more">+ Add language</button>
+        <div class="form-group">
+          <input type="text" placeholder="Language" />
+          <input type="text" placeholder="Level" />
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section>
+        <h2>Skills</h2>
+        <div class="skills-container">
+          <button type="button" class="skill">Team Player</button>
+          <button type="button" class="skill">Analytical skills</button>
+          <button type="button" class="skill">Decision-making</button>
+          <button type="button" class="skill">Adaptability</button>
+        </div>
+        <button type="button" class="add-more">+ Add skill</button>
+      </section>
+
+      <!-- Websites & Social Links -->
+      <section>
+        <h2>Websites & Social Links</h2>
+        <button type="button" class="add-more">+ Add link</button>
+        <div class="form-group">
+          <input type="text" placeholder="Label (e.g., LinkedIn)" />
+          <input type="url" placeholder="Link" />
+        </div>
+      </section>
+
+      <!-- Submit -->
+      <button type="submit" class="submit-btn">Done</button>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

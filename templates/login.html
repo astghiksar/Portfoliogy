@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+  <div class="login-container">
+    <!-- Portfoliogy Logo -->
+    <div class="logo">
+      PORTFOLOGY
+    </div>
+
+    <h1>Log In</h1>
+    <p>New to Portfoliogy? <a href="/signup">Sign Up for free</a></p>
+
+    <form class="login-form" action="/login" method="POST">
+  <input type="email" name="email" placeholder="Email address" required>
+  <input type="password" name="password" placeholder="Password" required>
+  <a href="#" class="forgot-password">Forgot password?</a>
+  <button type="submit" class="login-btn">Log In</button>
+     </form>
+
+
+    <div class="social-login">
+      <button class="social-btn apple"></button>
+      <button class="social-btn facebook">f</button>
+      <button class="social-btn google">G</button>
+      <button class="social-btn linkedin">in</button>
+    </div>
+  </div>
+</body>
+</html>>

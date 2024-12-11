@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Type</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_search.css') }}">
+</head>
+<body>
+ <nav class="navbar">
+      <a href="/home">
+          <div class="logo">PORTFOLIOGY</div>
+      </a>
+
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#templates">Create CV</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#footer">Showcase</a></li>
+    </ul>
+    <a href="/login">
+        <button class="login-btn">Login</button>
+    </a>
+  </nav>
+
+  <main class="main-section">
+    <div class="search-section">
+      <h1>What type of website do you want to create?</h1>
+      <div class="search-bar">
+        <input type="text" placeholder="Search for your portfolio type" id="portfolio-search">
+          <a href="/template">
+              <button class="continue-btn">Continue</button>
+          </a>
+
+      </div>
+      <a href="#" class="back-link">Back</a>
+    </div>
+
+   <div class="showcase">
+  <!-- Showcase container for vertical stacking -->
+  <div class="vertical-images">
+    <div class="image-item">
+      <img src="{{ url_for('static', filename='images/search.png') }}" alt="Image 1">
+    </div>
+    <div class="image-item">
+      <img src="{{ url_for('static', filename='images/search.png') }}" alt="Image 2">
+    </div>
+  </div>
+</div>
+
+      <!-- Add more items -->
+    </div>
+  </main>
+  <script src="js/js_search.js"></script>
+</body>
+</html>

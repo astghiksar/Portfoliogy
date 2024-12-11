@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Templates</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_templates.css') }}">
+</head>
+<body>
+  <nav class="navbar">
+      <a href="/home">
+          <div class="logo">PORTFOLIOGY</div>
+      </a>
+
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#templates">Create CV</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#footer">Showcase</a></li>
+    </ul>
+    <a href="/login">
+        <button class="login-btn">Login</button>
+    </a>
+  </nav>
+
+  <main class="template-section">
+      <br>
+      <br>
+    <h1>Get started with Portfolio templates</h1>
+    <div class="category-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="design">Design</button>
+      <button class="filter-btn" data-filter="creative">Creative</button>
+      <button class="filter-btn" data-filter="pr">PR</button>
+      <button class="filter-btn" data-filter="artistic">Artistic</button>
+      <button class="filter-btn" data-filter="classic">Classic</button>
+    </div>
+
+    <div class="template-gallery">
+      <!-- Repeat these template cards -->
+      <div class="template-card design">
+        <img src="{{ url_for('static', filename='images/template1.png') }}" alt="Template 1">
+        <div class="color-options">
+          <span class="color-dot brown"></span>
+          <span class="color-dot green"></span>
+          <span class="color-dot blue"></span>
+          <span class="color-dot purple"></span>
+        </div>
+      </div>
+      <div class="template-card creative">
+        <img src="template-2.png" alt="Template Creative 1">
+        <div class="color-options">
+          <span class="color-dot brown"></span>
+          <span class="color-dot green"></span>
+          <span class="color-dot blue"></span>
+          <span class="color-dot purple"></span>
+        </div>
+      </div>
+      <div class="template-card pr">
+        <img src="template-3.png" alt="Template PR 1">
+        <div class="color-options">
+          <span class="color-dot brown"></span>
+          <span class="color-dot green"></span>
+          <span class="color-dot blue"></span>
+          <span class="color-dot purple"></span>
+        </div>
+      </div>
+      <!-- Add more templates as needed -->
+    </div>
+
+    <button class="load-more-btn">Load more</button>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/js_templates.js') }}"></script>
+</body>
+</html>

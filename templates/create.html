@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfology</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_create.css') }}">
+</head>
+<body>
+  <nav class="navbar">
+      <a href="/home">
+          <div class="logo">PORTFOLIOGY</div>
+      </a>
+
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#templates">Create CV</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#footer">Showcase</a></li>
+    </ul>
+    <a href="/login">
+        <button class="login-btn">Login</button>
+    </a>
+  </nav>
+
+  <main class="hero-section">
+    <div class="hero-content">
+        <br>
+        <br>
+        <br>
+      <h1>Welcome to <span class="highlight">PORTFOLIOGY</span></h1>
+      <p>Build a standout CV with our easy-to-use tool. Follow a few simple steps and get a polished result.</p>
+        <br>
+        <br>
+        <a href="/search">
+            <button class="create-btn">Create CV</button>
+        </a>
+
+    </div>
+    <div class="hero-image">
+      <img src="{{ url_for('static', filename='images/create.png') }}">
+    </div>
+  </main>
+  <script src="{{ url_for('static', filename='js/js_create.js') }}"></script>
+</body>
+</html>

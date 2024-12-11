@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Builder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_home.css') }}"></head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+      <a href="/home">
+          <div class="logo">PORTFOLIOGY</div>
+      </a>
+
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#templates">Create CV</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#footer">Showcase</a></li>
+    </ul>
+    <a href="/login">
+        <button class="login-btn">Login</button>
+    </a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <h1>A better way <br> to <span>build future</span></h1>
+      <p>Build a beautiful, modern CV with flexible components and opportunity to showcase your professional portfolio.</p>
+      <div class="hero-buttons">
+{#        <button class="btn-primary">Get Started</button>#}
+          <a href="/create" class="btn-primary">Get Started</a>
+        <a href="#templates" class="btn-secondary">Learn more →</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="{{ url_for('static', filename='images/home.png') }}">
+    </div>
+  </section>
+
+  <!-- Portfolio Templates Section -->
+  <section id="templates" class="section">
+    <h1>Portfolio templates designed to spotlight your best work</h1>
+    <p>
+      Choose from <span class="highlight">900+</span> customizable templates to start
+      building your free portfolio website—and present your work the way it’s meant to be seen.
+    </p>
+    <a href="#" class="button">Explore Templates →</a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <p class="section-heading">About</p>
+    <h1>Build your online portfolio <br>with full creative freedom</h1>
+    <p class="description">
+      Our Online Portfolio Builder empowers professionals like you to craft stunning portfolios effortlessly.
+      Showcase your projects, integrate your resume, and link your social profiles all in one place.
+    </p>
+    <p class="sub-description">
+      Display, promote and sell your work all from your portfolio builder, so you can focus on the work that matters most.
+    </p>
+    <div class="features-grid">
+      <div class="feature-box non-interactive">Create it your way</div>
+      <div class="feature-box non-interactive">All the essentials</div>
+      <div class="feature-box non-interactive">Reach more people</div>
+      <div class="feature-box non-interactive">Flexible layout</div>
+      <div class="feature-box non-interactive">Manage network</div>
+      <div class="feature-box non-interactive">Get expert tips</div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="faq-section">
+    <h1>FAQ</h1>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>What makes a good online portfolio?</span>
+        <button class="toggle-button">+</button>
+      </div>
+      <div class="faq-answer">
+        A good online portfolio effectively showcases your work, skills, and personality to potential employers, clients, and collaborators. Portfolioigy’s online portfolio maker offers you powerful design and the ability to use high-quality images, as well as many interactive features for your portfolio.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Why make an online portfolio?</span>
+        <button class="toggle-button">+</button>
+      </div>
+      <div class="faq-answer">
+        When you create a portfolio, you build a platform to showcase and promote your work in a beautiful way. Portfolioigy’s portfolio maker helps you to build a professional online portfolio which you can use to expand your audience, open new income streams, manage your network, offer online services, and more.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Can I use Portfolioigy for free?</span>
+        <button class="toggle-button">+</button>
+      </div>
+      <div class="faq-answer">
+        Yes, you can build a fully functional, free online portfolio on Portfolioigy. It is absolutely free!
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer">
+    <div class="footer-container">
+
+      <div class="footer-column">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Live Support</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms Of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Social</h3>
+        <ul>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>PORTFOLIOGY</h3>
+        <p>At Online Portfolio Builder, we help professionals create stunning, personalized portfolios with ease.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>©️ 2024 Online Portfolio Builder. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/js_home.js') }}"></script>
+</body>
+</html>
