@@ -132,8 +132,108 @@ button.add-more {
 button.add-more:hover {
   text-decoration: underline;
 }
+button.remove {
+  background-color: transparent;
+  color: #6e44ff;
+  font-size: 14px;
+  cursor: pointer;
+}
 
+button.remove:hover {
+  text-decoration: underline;
+}
+
+
+button.add-more1 {
+  background-color: transparent;
+  color: #6e44ff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button.add-more1:hover {
+  text-decoration: underline;
+}
+button.remove-education {
+  background-color: transparent;
+  color: #6e44ff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button.remove-education:hover {
+  text-decoration: underline;
+}
+
+
+button.add-more2 {
+  background-color: transparent;
+  color: #6e44ff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button.add-more2:hover {
+  text-decoration: underline;
+}
+button.remove-language {
+  background-color: transparent;
+  color: #6e44ff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button.remove-language:hover {
+  text-decoration: underline;
+}
+
+button.add-more3 {
+  background-color: transparent;
+  color: #6e44ff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button.add-more3:hover {
+  text-decoration: underline;
+}
+button.remove-skill {
+  background-color: transparent;
+  color: #6e44ff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button.remove-skill:hover {
+  text-decoration: underline;
+}
+
+
+button.add-more4 {
+  background-color: transparent;
+  color: #6e44ff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button.add-more4:hover {
+  text-decoration: underline;
+}
+button.remove-link {
+  background-color: transparent;
+  color: #6e44ff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button.remove-link:hover {
+  text-decoration: underline;
+}
 /* Upload Photo Button */
+.photo-upload{
+  float: right;
+  gap: 20px;
+}
 .photo-upload button {
   background-color: #6e44ff;
   color: #ffffff;

@@ -33,10 +33,12 @@
       <!-- Personal Details -->
       <section>
         <h2>Personal Details</h2>
+          <br>
+          <br>
         <div class="form-group">
           <input type="text" placeholder="Job Title" />
           <div class="photo-upload">
-            <img src="default-avatar.png" alt="Upload" />
+            <img src="{{ url_for('static', filename='images/avatar.jpg') }}" alt="AAA" width="80" height="80">
             <button type="button">Upload photo</button>
           </div>
         </div>
@@ -63,26 +65,34 @@
       </section>
 
       <!-- Employment History -->
-      <section>
-        <h2>Employment History</h2>
-        <button type="button" class="add-more">+ Add employment</button>
-        <div class="form-group">
-          <input type="text" placeholder="Title/Position" />
-          <input type="text" placeholder="Company" />
-        </div>
-        <div class="form-group">
-          <input type="date" placeholder="Start date" />
-          <input type="date" placeholder="End date" />
-        </div>
-        <div class="form-group">
-          <input type="text" placeholder="Location" />
-        </div>
-      </section>
+        <section>
+            <h2>Employment History</h2>
+            <button type="button" class="add-more">+ Add employment</button>
+            <button type="button" class="remove" style="display: none;">- Remove employment</button>
+            <!-- Static fields -->
+            <div class="form-group">
+                <input type="text" placeholder="Title/Position" />
+                <input type="text" placeholder="Company" />
+            </div>
+              <div class="form-group">
+                <input type="date" placeholder="Start date" />
+                <input type="date" placeholder="End date" />
+              </div>
+              <div class="form-group">
+                <input type="text" placeholder="Location" />
+              </div>
+            <br>
+            <br>
+        </section>
+
+
+
 
       <!-- Education -->
       <section>
         <h2>Education</h2>
-        <button type="button" class="add-more">+ Add education</button>
+        <button type="button" class="add-more1">+ Add education</button>
+          <button type="button" class="remove-education" style="display: none;">- Remove education</button>
         <div class="form-group">
           <input type="text" placeholder="Degree(s)" />
           <input type="text" placeholder="Name of school/institution" />
@@ -91,16 +101,20 @@
           <input type="date" placeholder="Start date" />
           <input type="date" placeholder="End date" />
         </div>
+          <br>
+          <br>
       </section>
 
       <!-- Languages -->
       <section>
         <h2>Languages</h2>
-        <button type="button" class="add-more">+ Add language</button>
+        <button type="button" class="add-more2">+ Add language</button>
+          <button type="button" class="remove-language" style="display: none;">- Remove education</button>
         <div class="form-group">
           <input type="text" placeholder="Language" />
           <input type="text" placeholder="Level" />
         </div>
+          <br>
       </section>
 
       <!-- Skills -->
@@ -112,17 +126,21 @@
           <button type="button" class="skill">Decision-making</button>
           <button type="button" class="skill">Adaptability</button>
         </div>
-        <button type="button" class="add-more">+ Add skill</button>
+        <button type="button" class="add-more3">+ Add skill</button>
+          <button type="button" class="remove-skill" style="display: none;">- Remove education</button>
+          <br>
       </section>
 
       <!-- Websites & Social Links -->
       <section>
         <h2>Websites & Social Links</h2>
-        <button type="button" class="add-more">+ Add link</button>
+        <button type="button" class="add-more4">+ Add link</button>
+          <button type="button" class="remove-link" style="display: none;">- Remove education</button>
         <div class="form-group">
           <input type="text" placeholder="Label (e.g., LinkedIn)" />
           <input type="url" placeholder="Link" />
         </div>
+          <br>
       </section>
 
       <!-- Submit -->
