@@ -237,3 +237,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  // Select all skill buttons
+  const skillButtons = document.querySelectorAll(".skill");
+
+  skillButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      // Toggle the "selected" class on click
+      button.classList.toggle("selected");
+    });
+  });
+});
+
+
