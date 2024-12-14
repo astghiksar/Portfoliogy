@@ -17,3 +17,15 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
+
+document.getElementById("scrollButton").addEventListener("click", () => {
+  const element = document.getElementById("templates");
+  const headerOffset = 200; // Increase this value slightly if text is cut off
+  const elementPosition = element.getBoundingClientRect().top;
+  const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+  window.scrollTo({
+    top: offsetPosition,
+    behavior: "smooth",
+  });
+});

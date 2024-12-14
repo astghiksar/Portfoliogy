@@ -25,3 +25,4 @@ filterButtons.forEach(button => {
 document.querySelector('.load-more-btn').addEventListener('click', () => {
   alert('Loading more templates...');
 });
+
