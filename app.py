@@ -105,7 +105,10 @@ def create2():
 def logout():
     session.clear()
     return redirect(url_for('home'))
-
-
+    
+@app.route('/forgot')
+def forgot():
+    return render_template('forgot.html')
+    
 if __name__ == '__main__':
     app.run(debug=True)
