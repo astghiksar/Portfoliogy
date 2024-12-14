@@ -46,7 +46,7 @@ h1, h2 {
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 20px;
+  gap: 40px;
 }
 
 .nav-links li a {
@@ -234,6 +234,14 @@ button.remove-link:hover {
   float: right;
   gap: 20px;
 }
+
+.photo-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* Adds space between the image and the button */
+}
+
 .photo-upload button {
   background-color: #6e44ff;
   color: #ffffff;
@@ -249,7 +257,7 @@ button.remove-link:hover {
 }
 
 button.skill {
-  background-color: #6e44ff;
+  background-color: #29274a;
   color: #ffffff;
   padding: 10px;
   border-radius: 20px;
@@ -258,9 +266,15 @@ button.skill {
 }
 
 button.skill:hover {
-  background-color: #00d084;
+  background-color: #4a28bf;
   transform: scale(1.1);
 }
+
+.skill.selected {
+  background-color: #6e44ff;
+  border: none;             /* Optional: remove the border */
+}
+
 
 .submit-btn {
   background-color: #6e44ff;
@@ -276,3 +290,4 @@ button.skill:hover {
   background-color: #5936cc;
   transform: scale(1.05);
 }
+
