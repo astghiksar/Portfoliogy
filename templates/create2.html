@@ -1,3 +1,170 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#  <meta charset="UTF-8">#}
+{#  <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#  <title>Create CV</title>#}
+{#  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_create2.css') }}">#}
+{#</head>#}
+{#<body>#}
+{#  <nav class="navbar">#}
+{#      <a href="/home">#}
+{#          <div class="logo">PORTFOLIOGY</div>#}
+{#      </a>#}
+{##}
+{#    <ul class="nav-links">#}
+{#      <li><a href="/home">Home</a></li>#}
+{#      <li><a href="#about">About</a></li>#}
+{#      <li><a href="/template">Create CV</a></li>#}
+{#      <li><a href="#faq">FAQ</a></li>#}
+{#      <li><a href="#footer">Showcase</a></li>#}
+{#    </ul>#}
+{#    <div class="login-container">#}
+{#        {% if full_name %}#}
+{#            <!-- Show Welcome button and dropdown when logged in -->#}
+{#            <button class="login-btn" onclick="toggleDropdown()">Welcome, {{ full_name }}</button>#}
+{#            <div id="dropdown-menu" class="dropdown-menu">#}
+{#                <a href="/logout" class="logout-link">Logout</a>#}
+{#            </div>#}
+{#        {% else %}#}
+{#            <!-- Login button when not logged in -->#}
+{#            <a href="/login"><button class="login-btn">Login</button></a>#}
+{#        {% endif %}#}
+{#    </div>#}
+{#  </nav>#}
+{#  <br>#}
+{#  <br>#}
+{#<form class="cv-form" method="POST" action="{{ url_for('create_cv') }}">#}
+{##}
+{#  <form class="form-section">#}
+{#    <h1>Untitled <span class="edit-icon">✎</span></h1>#}
+{##}
+{#    <form class="cv-form">#}
+{#      <!-- Personal Details -->#}
+{#      <section>#}
+{#        <h2>Personal Details</h2>#}
+{#          <br>#}
+{#          <br>#}
+{#        <div class="form-group">#}
+{#          <input type="text" name="job_title" placeholder="Job Title" />#}
+{#          <div class="photo-upload">#}
+{#            <img src="{{ url_for('static', filename='images/avatar.jpg') }}" alt="AAA" width="80" height="80">#}
+{#            <button type="button">Upload photo</button>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class="form-group">#}
+{#          <input type="text" name="first_name" placeholder="First Name" />#}
+{#          <input type="email" name="email" placeholder="Email" />#}
+{#        </div>#}
+{#        <div class="form-group">#}
+{#          <input type="text" name="last_name" placeholder="Last Name" />#}
+{#          <input type="text" name="phone" placeholder="Phone" />#}
+{#        </div>#}
+{#        <div class="form-group">#}
+{#          <input type="text" name="country" placeholder="Country" />#}
+{#          <input type="text" name="city" placeholder="City" />#}
+{#        </div>#}
+{#      </section>#}
+{##}
+{#      <!-- Professional Summary -->#}
+{#      <section>#}
+{#        <h2>Professional Summary</h2>#}
+{#        <textarea name="summary" placeholder="Write a 4-6 sentence summary about how great you are..."></textarea>#}
+{#        <p class="hint">Recruiter tip: write 400-600 characters to increase interview chances</p>#}
+{#      </section>#}
+{##}
+{#      <!-- Employment History -->#}
+{#        <section>#}
+{#            <h2>Employment History</h2>#}
+{#            <button type="button" class="add-more">+ Add employment</button>#}
+{#            <button type="button" class="remove" style="display: none;">- Remove employment</button>#}
+{#            <!-- Static fields -->#}
+{#            <div class="form-group">#}
+{#                <input type="text" name="title_position" placeholder="Title/Position" />#}
+{#                <input type="text" name="company" placeholder="Company" />#}
+{#            </div>#}
+{#              <div class="form-group">#}
+{#                <input type="date" name="emp_start_date" placeholder="Start date" />#}
+{#                <input type="date" name="emp_end_date" placeholder="End date" />#}
+{#              </div>#}
+{#              <div class="form-group">#}
+{#                <input type="text" name="location" placeholder="Location" />#}
+{#              </div>#}
+{#            <br>#}
+{#            <br>#}
+{#        </section>#}
+{##}
+{##}
+{##}
+{##}
+{#      <!-- Education -->#}
+{#      <section>#}
+{#        <h2>Education</h2>#}
+{#        <button type="button" class="add-more1">+ Add education</button>#}
+{#          <button type="button" class="remove-education" style="display: none;">- Remove education</button>#}
+{#        <div class="form-group">#}
+{#          <input type="text" name="degree" placeholder="Degree(s)" />#}
+{#          <input type="text" name="school_name" placeholder="Name of school/institution" />#}
+{#        </div>#}
+{#        <div class="form-group">#}
+{#          <input type="date" name="edu_start_date" placeholder="Start date" />#}
+{#          <input type="date" name="edu_end_date" placeholder="End date" />#}
+{#        </div>#}
+{#          <br>#}
+{#          <br>#}
+{#      </section>#}
+{##}
+{#      <!-- Languages -->#}
+{#      <section>#}
+{#        <h2>Languages</h2>#}
+{#        <button type="button" class="add-more2">+ Add language</button>#}
+{#          <button type="button" class="remove-language" style="display: none;">- Remove language</button>#}
+{#        <div class="form-group">#}
+{#          <input type="text" name="language" placeholder="Language" />#}
+{#          <input type="text" name="level" placeholder="Level" />#}
+{#        </div>#}
+{#          <br>#}
+{#      </section>#}
+{##}
+{#      <!-- Skills -->#}
+{#      <section>#}
+{#        <h2>Skills</h2>#}
+{#        <div class="skills-container">#}
+{#          <button type="button" class="skill">Team Player</button>#}
+{#          <button type="button" class="skill">Analytical skills</button>#}
+{#          <button type="button" class="skill">Decision-making</button>#}
+{#          <button type="button" class="skill">Adaptability</button>#}
+{#        </div>#}
+{#        <button type="button" class="add-more3">+ Add skill</button>#}
+{#          <button type="button" class="remove-skill" style="display: none;">- Remove skill</button>#}
+{#          <br>#}
+{#      </section>#}
+{##}
+{#      <!-- Websites & Social Links -->#}
+{#      <section>#}
+{#        <h2>Websites & Social Links</h2>#}
+{#        <button type="button" class="add-more4">+ Add link</button>#}
+{#          <button type="button" class="remove-link" style="display: none;">- Remove link</button>#}
+{#        <div class="form-group">#}
+{#          <input type="text" name="label" placeholder="Label (e.g., LinkedIn)" />#}
+{#          <input type="url" name="link" placeholder="Link" />#}
+{#        </div>#}
+{#          <br>#}
+{#      </section>#}
+{##}
+{#      <!-- Submit -->#}
+{#      <button type="submit" class="submit-btn">Done</button>#}
+{#    </form>#}
+{#  </form>#}
+{#</form>#}
+{##}
+{##}
+{#  <script src="{{ url_for('static', filename='js/js_create2.js') }}"></script>#}
+{##}
+{#</body>#}
+{#</html>#}
+{##}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,24 +196,22 @@
         {% else %}
             <!-- Login button when not logged in -->
             <a href="/login"><button class="login-btn">Login</button></a>
+            <a href="/signup"><button class="login-btn">Sign Up</button></a>
         {% endif %}
     </div>
   </nav>
   <br>
   <br>
-<form class="cv-form" method="POST" action="{{ url_for('create_cv') }}">
 
-  <form class="form-section">
+  <main class="form-section">
     <h1>Untitled <span class="edit-icon">✎</span></h1>
 
-    <form class="cv-form">
-      <!-- Personal Details -->
+    <form class="cv-form"  method="POST" action="{{ url_for('create_cv') }}">
       <section>
         <h2>Personal Details</h2>
-          <br>
-          <br>
+
         <div class="form-group">
-          <input type="text" name="job_title" placeholder="Job Title" />
+          <input type="text" name="job_title[]" placeholder="Job Title" />
           <div class="photo-upload">
             <img src="{{ url_for('static', filename='images/avatar.jpg') }}" alt="AAA" width="80" height="80">
             <button type="button">Upload photo</button>
@@ -54,41 +219,44 @@
         </div>
         <div class="form-group">
           <input type="text" name="first_name" placeholder="First Name" />
-          <input type="email" name="email" placeholder="Email" />
+          <input type="email" name="email[]" placeholder="Email" />
         </div>
         <div class="form-group">
           <input type="text" name="last_name" placeholder="Last Name" />
           <input type="text" name="phone" placeholder="Phone" />
         </div>
         <div class="form-group">
-          <input type="text" name="country" placeholder="Country" />
-          <input type="text" name="city" placeholder="City" />
+          <input type="text" name="country[]"  placeholder="Country" />
+          <input type="text" name="city[]" placeholder="City" />
         </div>
       </section>
 
+        <br><br>
       <!-- Professional Summary -->
       <section>
         <h2>Professional Summary</h2>
-        <textarea name="summary" placeholder="Write a 4-6 sentence summary about how great you are..."></textarea>
+        <textarea name="summary[]" placeholder="Write a 4-6 sentence summary about how great you are..."></textarea>
         <p class="hint">Recruiter tip: write 400-600 characters to increase interview chances</p>
       </section>
 
+<br><br>
       <!-- Employment History -->
         <section>
             <h2>Employment History</h2>
             <button type="button" class="add-more">+ Add employment</button>
             <button type="button" class="remove" style="display: none;">- Remove employment</button>
+            <br><br>
             <!-- Static fields -->
             <div class="form-group">
-                <input type="text" name="title_position" placeholder="Title/Position" />
-                <input type="text" name="company" placeholder="Company" />
+                <input type="text" name="title_position[]" placeholder="Title/Position" />
+                <input type="text"  name="company[]" placeholder="Company" />
             </div>
               <div class="form-group">
-                <input type="date" name="emp_start_date" placeholder="Start date" />
-                <input type="date" name="emp_end_date" placeholder="End date" />
+                <input type="date" name="emp_start_date[]"  placeholder="Start date" />
+                <input type="date" name="emp_end_date[]" placeholder="End date" />
               </div>
               <div class="form-group">
-                <input type="text" name="location" placeholder="Location" />
+                <input type="text" name="location[]" placeholder="Location" />
               </div>
             <br>
             <br>
@@ -96,71 +264,68 @@
 
 
 
-
+<br><br>
       <!-- Education -->
       <section>
         <h2>Education</h2>
         <button type="button" class="add-more1">+ Add education</button>
           <button type="button" class="remove-education" style="display: none;">- Remove education</button>
+          <br><br>
         <div class="form-group">
-          <input type="text" name="degree" placeholder="Degree(s)" />
-          <input type="text" name="school_name" placeholder="Name of school/institution" />
+          <input type="text" name="degree[]"  placeholder="Degree(s)" />
+          <input type="text" name="institution[]" placeholder="Name of school/institution" />
         </div>
         <div class="form-group">
-          <input type="date" name="edu_start_date" placeholder="Start date" />
-          <input type="date" name="edu_end_date" placeholder="End date" />
+          <input type="date" name="edu_start_date[]"  placeholder="Start date" />
+          <input type="date" name="edu_end_date[]" placeholder="End date" />
         </div>
           <br>
           <br>
       </section>
-
+<br><br>
       <!-- Languages -->
       <section>
         <h2>Languages</h2>
         <button type="button" class="add-more2">+ Add language</button>
           <button type="button" class="remove-language" style="display: none;">- Remove language</button>
+          <br><br>
         <div class="form-group">
-          <input type="text" name="language" placeholder="Language" />
-          <input type="text" name="level" placeholder="Level" />
+          <input type="text" name="language[]" placeholder="Language" />
+          <input type="text" name="level[]" placeholder="Level" />
         </div>
           <br>
       </section>
-
+<br><br>
       <!-- Skills -->
       <section>
         <h2>Skills</h2>
-        <div class="skills-container">
-          <button type="button" class="skill">Team Player</button>
-          <button type="button" class="skill">Analytical skills</button>
-          <button type="button" class="skill">Decision-making</button>
-          <button type="button" class="skill">Adaptability</button>
-        </div>
         <button type="button" class="add-more3">+ Add skill</button>
-          <button type="button" class="remove-skill" style="display: none;">- Remove skill</button>
-          <br>
-      </section>
-
-      <!-- Websites & Social Links -->
-      <section>
-        <h2>Websites & Social Links</h2>
-        <button type="button" class="add-more4">+ Add link</button>
-          <button type="button" class="remove-link" style="display: none;">- Remove link</button>
-        <div class="form-group">
-          <input type="text" name="label" placeholder="Label (e.g., LinkedIn)" />
-          <input type="url" name="link" placeholder="Link" />
+        <button type="button" class="remove-skill" style="display: none;">- Remove skill</button>
+          <br><br>
+          <div class="form-group">
+          <input type="text" name="skill[]" placeholder="Skill" />
         </div>
           <br>
       </section>
+<br><br>
+      <!-- Websites & Social Links -->
+     <section>
+  <h2>Websites & Social Links</h2>
+  <button type="button" class="add-more4">+ Add link</button>
+  <button type="button" class="remove-link" style="display: none;">- Remove link</button>
+  <br><br>
+  <div class="form-group">
+    <input type="text"  name="label[]" placeholder="Label (e.g., LinkedIn)" />
+    <input type="url" name="link[]" placeholder="Link" />
+  </div>
+  <br>
+</section>
 
       <!-- Submit -->
       <button type="submit" class="submit-btn">Done</button>
     </form>
-  </form>
-</form>
-
+  </main>
 
   <script src="{{ url_for('static', filename='js/js_create2.js') }}"></script>
-
 </body>
 </html>
-
