@@ -5,7 +5,7 @@ from models import db, User, CV, PersonalDetails, Employment, Education, Languag
 
 app = Flask(__name__)
 app.secret_key = 'portfolio_key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://arpi:userarpi@localhost/portfoliogy_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Astghiksar1@localhost/portfoliogy_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
@@ -227,8 +227,7 @@ def logout():
 
 @app.route('/forgot')
 def forgot():
-    return render_template('forgot.html')
+    return render_template('forgot_password.html')
 
 if __name__ == '__main__':
     app.run(debug=True),
-
