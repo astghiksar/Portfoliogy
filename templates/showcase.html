@@ -28,13 +28,13 @@
   </nav>
 
   <main>
-    <!-- Hero Section -->
+   
     <section class="hero" id="about">
       <div class="hero-content">
         <div>
           <h1>Hi, I’m {{ user.full_name }} 👋</h1>
           <p>
-            {{ personal_details.bio if personal_details and personal_details.bio else "Welcome to my portfolio page! I design and build digital experiences." }}
+            {{ personal_details.summary if personal_details and personal_details.summary else "Welcome to my portfolio page! I design and build digital experiences." }}
           </p>
           <div class="hero-details">
             <p>📍 {{ personal_details.city }}, {{ personal_details.country }} </p>
@@ -46,7 +46,7 @@
       </div>
     </section>
 
-    <!-- Education Section -->
+    
     {% if education %}
     <section class="education" id="education">
       <h2>Education</h2>
@@ -58,7 +58,7 @@
     </section>
     {% endif %}
 
-    <!-- Skills Section -->
+   
     {% if cv and cv.skills %}
     <section class="skills" id="skills">
       <h2>Skills</h2>
@@ -70,7 +70,7 @@
     </section>
     {% endif %}
 
-    <!-- Experience Section -->
+   
     {% if employments %}
     <section class="experience" id="experience">
       <h2>Experience</h2>
@@ -88,7 +88,7 @@
     </section>
     {% endif %}
 
-    <!-- Projects Section -->
+   
     {% if projects %}
     <section class="projects" id="projects">
       <h2>Projects</h2>
@@ -105,7 +105,7 @@
     </section>
     {% endif %}
 
-    <!-- Contact Section -->
+    
     <section class="contact" id="contact">
       <h2>Get in Touch</h2>
       <p>Email: {{ personal_details.email if personal_details else 'Not provided' }}</p>
