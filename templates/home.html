@@ -6,7 +6,7 @@
   <title>Portfolio Builder</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_home.css') }}"></head>
 <body>
-  <!-- Navbar -->
+  
   <nav class="navbar">
       <a href="/home">
           <div class="logo">PORTFOLIOGY</div>
@@ -21,13 +21,13 @@
     </ul>
     <div class="login-container">
         {% if full_name %}
-            <!-- Show Welcome button and dropdown when logged in -->
+            
             <button class="login-btn" onclick="toggleDropdown()">Welcome, {{ full_name }}</button>
             <div id="dropdown-menu" class="dropdown-menu">
                 <a href="/logout" class="logout-link">Logout</a>
             </div>
         {% else %}
-            <!-- Login button when not logged in -->
+          
             <a href="/login"><button class="login-btn">Login</button></a>
             <a href="/signup"><button class="login-btn">Sign Up</button></a>
         {% endif %}
@@ -36,13 +36,13 @@
   </nav>
 
 
-  <!-- Hero Section -->
+ 
   <section id="hero" class="hero">
     <div class="hero-content">
       <h1>A better way <br> to <span>build future</span></h1>
       <p>Build a beautiful, modern CV with flexible components and opportunity to showcase your professional portfolio.</p>
       <div class="hero-buttons">
-{#        <button class="btn-primary">Get Started</button>#}
+       <button class="btn-primary">Get Started</button>
           <a href="/create" class="btn-primary">Get Started</a>
 
         <a href="#templates" class="btn-secondary">Learn more →</a>
@@ -53,7 +53,7 @@
     </div>
   </section>
 
-  <!-- Portfolio Templates Section -->
+ 
   <section id="templates" class="section">
     <h1>Portfolio templates designed to spotlight your best work</h1>
     <p>
@@ -69,7 +69,7 @@
     <section class="expert-tips">
     <h1>Get expert tips from Portfoliogy</h1>
     <div class="cards-container">
-      <!-- Card 1 -->
+   
       <div class="card">
         <img src="{{ url_for('static', filename='images/tips1.png') }}">
         <div class="card-content">
@@ -77,7 +77,7 @@
           <a href="https://www.reforge.com/artifacts/growth-employee-performance-management-model" class="read-more">Read More →</a>
         </div>
       </div>
-      <!-- Card 2 -->
+
       <div class="card">
         <img src="{{ url_for('static', filename='images/tips2.png') }}">
         <div class="card-content">
@@ -85,7 +85,7 @@
           <a href="https://www.reforge.com/artifacts/growth-employee-performance-management-model" class="read-more">Read More →</a>
         </div>
       </div>
-      <!-- Card 3 -->
+
       <div class="card">
         <img src="{{ url_for('static', filename='images/tips3.png') }}">
         <div class="card-content">
@@ -96,7 +96,7 @@
     </div>
   </section>
 
-  <!-- About Section -->
+
   <section id="about" class="about-section">
       <br><br> <p class="section-heading">About</p>
     <h1>Build your online portfolio <br>with full creative freedom</h1>
@@ -117,7 +117,7 @@
     </div>
   </section>
 
-  <!-- FAQ Section -->
+
   <section id="faq" class="faq-section">
       <br><br><h1>FAQ</h1>
     <div class="faq-item">
@@ -149,7 +149,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
+
   <footer id="footer" class="footer">
     <div class="footer-container">
 
