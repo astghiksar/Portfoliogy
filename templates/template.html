@@ -15,13 +15,13 @@
     </ul>
     <div class="login-container">
         {% if full_name %}
-            <!-- Show Welcome button and dropdown when logged in -->
+           
             <button class="login-btn" onclick="toggleDropdown()">Welcome, {{ full_name }}</button>
             <div id="dropdown-menu" class="dropdown-menu">
                 <a href="/logout" class="logout-link">Logout</a>
             </div>
         {% else %}
-            <!-- Login button when not logged in -->
+           
             <a href="/login"><button class="login-btn">Login</button></a>
         {% endif %}
     </div>
@@ -68,7 +68,7 @@
                 <span class="color-dot purple"></span>
         </div>          <a href="{{ url_for('view_template') }}" class="view-button">View</a>
       </div>
-      <!-- Add more templates as needed -->
+    
     </div>
     <button class="load-more-btn">Load more</button>
   </main>
