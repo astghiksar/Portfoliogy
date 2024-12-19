@@ -30,7 +30,7 @@ def reset_password(token):
 
     try:
         serializer = URLSafeTimedSerializer(app.secret_key)
-        email = serializer.loads(token, salt='password-reset-salt', max_age=3600)  # Token expires in 1 hour
+        email = serializer.loads(token, salt='password-reset-salt', max_age=3600)
     except BadData:
         flash('The reset link is invalid or has expired.', 'error')
         return redirect(url_for('forgot_password'))
@@ -151,11 +151,9 @@ def create_cv():
             return redirect(url_for('login'))
 
         try:
-            # General CV fields
             job_title = request.form.get('job_title')
             summary = request.form.get('summary')
 
-            # Personal Details
             first_name = request.form.get('first_name')
             last_name = request.form.get('last_name')
             email = request.form.get('email')
@@ -163,36 +161,30 @@ def create_cv():
             country = request.form.get('country')
             city = request.form.get('city')
 
-            # Employment history
             title_position = request.form.getlist('title_position')
             company = request.form.getlist('company')
             emp_start_date = request.form.getlist('emp_start_date')
             emp_end_date = request.form.getlist('emp_end_date')
             location = request.form.getlist('location')
 
-            # Education history
             degree = request.form.getlist('degree')
             institution = request.form.getlist('institution')
             edu_start_date = request.form.getlist('edu_start_date')
             edu_end_date = request.form.getlist('edu_end_date')
 
-            # Languages
             language = request.form.getlist('language')
             level = request.form.getlist('level')
 
             skill = request.form.getlist('skill')
 
-            # Websites
             label = request.form.getlist('label')
             link = request.form.getlist('link')
 
-            # Create CV record
             cv = CV(user_id=user_id, job_title=job_title, summary=summary)
             db.session.add(cv)
-            db.session.flush()  # To get CV ID immediately
+            db.session.flush() 
 
-            # Personal Details
-            if first_name and last_name and email:  # Required fields check
+            if first_name and last_name and email:
                 personal_details = PersonalDetails(
                     cv_id=cv.id,
                     first_name=first_name,
@@ -204,7 +196,6 @@ def create_cv():
                 )
                 db.session.add(personal_details)
 
-            # Employment
             for i in range(len(title_position)):
                 if title_position[i] and company[i]:
                     employment = Employment(
@@ -217,7 +208,6 @@ def create_cv():
                     )
                     db.session.add(employment)
 
-            # Education
             for i in range(len(degree)):
                 if degree[i] and institution[i]:
                     education = Education(
@@ -229,7 +219,6 @@ def create_cv():
                     )
                     db.session.add(education)
 
-            # Languages
             for i in range(len(language)):
                 if language[i] and level[i]:
                     lang = Languages(
@@ -239,7 +228,6 @@ def create_cv():
                     )
                     db.session.add(lang)
 
-            # Websites
             for i in range(len(label)):
                 if label[i] and link[i]:
                     website = Websites(cv_id=cv.id, label=label[i], url=link[i])
