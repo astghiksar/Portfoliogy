@@ -21,13 +21,13 @@
     </ul>
     <div class="login-container">
         {% if full_name %}
-            <!-- Show Welcome button and dropdown when logged in -->
+           
             <button class="login-btn" onclick="toggleDropdown()">Welcome, {{ full_name }}</button>
             <div id="dropdown-menu" class="dropdown-menu">
                 <a href="/logout" class="logout-link">Logout</a>
             </div>
         {% else %}
-            <!-- Login button when not logged in -->
+           
             <a href="/login"><button class="login-btn">Login</button></a>
         {% endif %}
     </div>
@@ -47,7 +47,7 @@
     </div>
 
    <div class="showcase">
-  <!-- Showcase container for vertical stacking -->
+ 
   <div class="vertical-images">
     <div class="image-item">
       <img src="{{ url_for('static', filename='images/search.png') }}" alt="Image 1">
@@ -58,7 +58,7 @@
   </div>
 </div>
 
-      <!-- Add more items -->
+     
     </div>
   </main>
   <script src="js/js_search.js"></script>
