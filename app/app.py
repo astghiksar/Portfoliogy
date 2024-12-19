@@ -1,11 +1,11 @@
 from flask import Flask, request, render_template, redirect, url_for, session, flash
 import bcrypt
 from datetime import datetime
-from models import db, User, CV, PersonalDetails, Employment, Education, Languages, Websites
+from models import db, User, CV, PersonalDetails, Employment, Education, Languages, Websites, Skills
 
 app = Flask(__name__)
 app.secret_key = 'portfolio_key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Astghiksar1@localhost/portfoliogy_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://arpi:userarpi@localhost/portfoliogy_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
@@ -66,8 +66,7 @@ def login():
 def view_template():
     if 'user_id' not in session:
         return redirect(url_for('login'))
-    return redirect(url_for('create_cv'))
-
+    return redirect(url_for('create_cv', full_name=session['full_name']))
 @app.route('/')
 def default():
     return redirect(url_for('home'))
@@ -99,54 +98,6 @@ def template():
         full_name = session['full_name']
         return render_template('template.html', full_name=full_name)
     return render_template('template.html')
-
-
-@app.route('/showcase')
-def showcase():
-    # Check if the user is logged in
-    if 'user_id' not in session:
-        flash("Please log in to view the showcase.", "warning")
-        return redirect(url_for('login'))
-
-    user_id = session['user_id']
-
-    try:
-        # Fetch the user
-        user = User.query.get(user_id)
-        if not user:
-            flash("User not found. Please log in again.", "danger")
-            return redirect(url_for('login'))
-
-        # Fetch the first CV associated with the user
-        cv = CV.query.filter_by(user_id=user_id).first()
-        if not cv:
-            flash("You don't have a CV yet. Please create one to view the showcase.", "warning")
-            return redirect(url_for('create_cv'))
-
-        # Fetch related data
-        personal_details = PersonalDetails.query.filter_by(cv_id=cv.id).first()
-        employments = Employment.query.filter_by(cv_id=cv.id).all()
-        education = Education.query.filter_by(cv_id=cv.id).all()
-        languages = Languages.query.filter_by(cv_id=cv.id).all()
-        websites = Websites.query.filter_by(cv_id=cv.id).all()
-
-        # Pass user and data to the template
-        return render_template('showcase.html',
-                               user=user,
-                               personal_details=personal_details,
-                               employments=employments,
-                               education=education,
-                               languages=languages,
-                               websites=websites,
-                               job_title=cv.job_title,
-                               summary=cv.summary)
-
-    except Exception as e:
-        print(f"Error occurred in showcase route: {e}")
-        flash("An unexpected error occurred. Please try again.", "danger")
-        return redirect(url_for('dashboard'))
-
-
 
 @app.route('/create2', methods=['GET', 'POST'])
 def create_cv():
@@ -183,13 +134,15 @@ def create_cv():
 
             # Education history
             degree = request.form.getlist('degree')
-            school_name = request.form.getlist('school_name')
+            institution = request.form.getlist('institution')
             edu_start_date = request.form.getlist('edu_start_date')
             edu_end_date = request.form.getlist('edu_end_date')
 
             # Languages
             language = request.form.getlist('language')
             level = request.form.getlist('level')
+
+            skill = request.form.getlist('skill')
 
             # Websites
             label = request.form.getlist('label')
@@ -228,11 +181,11 @@ def create_cv():
 
             # Education
             for i in range(len(degree)):
-                if degree[i] and school_name[i]:
+                if degree[i] and institution[i]:
                     education = Education(
                         cv_id=cv.id,
                         degree=degree[i],
-                        institution=school_name[i],
+                        institution=institution[i],
                         start_date=datetime.strptime(edu_start_date[i], '%Y-%m-%d') if edu_start_date[i] else None,
                         end_date=datetime.strptime(edu_end_date[i], '%Y-%m-%d') if edu_end_date[i] else None
                     )
@@ -263,7 +216,6 @@ def create_cv():
             print(f"Error: {e}")
             flash('An error occurred while creating your CV. Please try again.', 'error')
             return redirect(url_for('create2'))
-
     return render_template('create2.html')
 
 
@@ -278,5 +230,5 @@ def forgot():
     return render_template('forgot.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True),
 
