@@ -1,4 +1,3 @@
-// Handle the Continue button click
 document.querySelector('.continue-btn').addEventListener('click', () => {
     const searchValue = document.querySelector('#portfolio-search').value;
     if (searchValue) {
