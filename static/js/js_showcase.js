@@ -1,4 +1,3 @@
-// Smooth Scroll for Navbar Links
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
@@ -8,7 +7,6 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   });
 });
 
-// Highlight Active Navbar Link on Scroll
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav-links a');
 
