@@ -1,4 +1,4 @@
-/* General Styles */* {
+* {
   margin: 0;  padding: 0;
   box-sizing: border-box;}
 
@@ -10,7 +10,7 @@ a {
   text-decoration: none;  color: inherit;
 }
 
-/* Navbar Styles */
+
 .navbar {
   display: flex;  justify-content: space-between;
   align-items: center;  padding: 20px 50px;
@@ -47,7 +47,7 @@ a {
 .login-btn:hover {  background-color: #7D4AED;
   color: #fff;}
 
-/* Template Section */
+
 .template-section {
   padding: 50px 20px;  text-align: center;
 }
