@@ -1,4 +1,4 @@
-/* General Styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +16,7 @@ a {
   color: inherit;
 }
 
-/* Navbar Styles */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -71,7 +71,7 @@ a {
   color: #fff;
 }
 
-/* Main Section */
+
 .main-section {
   display: flex;
   justify-content: center; /* Centers content horizontally */
@@ -142,25 +142,24 @@ a {
   color: #6e44ff;
 }
 
-/* Showcase Section */
+
 .showcase {
 
   height: 100%;
   width: 40%;
 }
 
-/* Container to hold the images in a vertical stack */
+
 .showcase .vertical-images {
   display: flex;
-  flex-direction: column; /* Stack the images vertically */
-  align-items: center;    /* Center the images horizontally within the container */
-  gap: 3px;              /* Space between the images */
-}
+  flex-direction: column; 
+  align-items: center;    
+  gap: 3px;              
 
-/* Optional styling for individual images */
+
 .image-item img {
-  width: 73%;            /* Adjust the image width to fill its container */
-  height: auto; /* Maintain aspect ratio */
+  width: 73%;            
+  height: auto; 
   float: right;
 }
 
