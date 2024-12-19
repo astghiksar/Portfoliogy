@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (response.ok) {
           alert(data.message || 'Login successful!');
-          // Redirect to a dashboard or homepage
           window.location.href = '/dashboard';
         } else {
           alert(data.message || 'Login failed.');
