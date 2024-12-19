@@ -244,6 +244,50 @@ def create_cv():
             return redirect(url_for('create2'))
     return render_template('create2.html')
 
+@app.route('/showcase')
+def showcase():
+  
+    if 'user_id' not in session:
+        flash("Please log in to view the showcase.", "warning")
+        return redirect(url_for('login'))
+
+    user_id = session['user_id']
+
+    try:
+       
+        user = User.query.get(user_id)
+        if not user:
+            flash("User not found. Please log in again.", "danger")
+            return redirect(url_for('login'))
+
+    
+        cv = CV.query.filter_by(user_id=user_id).first()
+        if not cv:
+            flash("You don't have a CV yet. Please create one to view the showcase.", "warning")
+            return redirect(url_for('create_cv'))
+
+      
+        personal_details = PersonalDetails.query.filter_by(cv_id=cv.id).first()
+        employments = Employment.query.filter_by(cv_id=cv.id).all()
+        education = Education.query.filter_by(cv_id=cv.id).all()
+        languages = Languages.query.filter_by(cv_id=cv.id).all()
+        websites = Websites.query.filter_by(cv_id=cv.id).all()
+
+        
+        return render_template('showcase.html',
+                               user=user,
+                               personal_details=personal_details,
+                               employments=employments,
+                               education=education,
+                               languages=languages,
+                               websites=websites,
+                               job_title=cv.job_title,
+                               summary=cv.summary)
+
+    except Exception as e:
+        print(f"Error occurred in showcase route: {e}")
+        flash("An unexpected error occurred. Please try again.", "danger")
+        return redirect(url_for('dashboard'))
 
 
 @app.route('/logout')
