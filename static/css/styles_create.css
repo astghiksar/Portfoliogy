@@ -1,4 +1,4 @@
-/* General Styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -17,7 +17,7 @@ a {
   color: inherit;
 }
 
-/* Navbar Styles */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -72,7 +72,7 @@ a {
   color: #fff;
 }
 
-/* Hero Section */
+
 .hero-section {
   display: flex;
   align-items: center;
