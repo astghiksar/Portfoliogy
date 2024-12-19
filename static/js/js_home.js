@@ -11,7 +11,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-    function toggleDropdown() {
-    var dropdown = document.getElementById('dropdown-menu');
-    dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+function toggleDropdown() {
+  const dropdownMenu = document.getElementById("dropdown-menu");
+  dropdownMenu.classList.toggle("show");
 }
+
+// Close the dropdown if clicked outside
+window.addEventListener("click", function (event) {
+  const dropdownMenu = document.getElementById("dropdown-menu");
+  const loginBtn = document.querySelector(".login-btn");
+  if (!loginBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
+    dropdownMenu.classList.remove("show");
+  }
+});

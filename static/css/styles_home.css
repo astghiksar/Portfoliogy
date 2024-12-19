@@ -313,3 +313,42 @@ a {
 .dropdown-content a:hover {
     background-color: #f1f1f1;
 }
+
+/* Dropdown menu styling */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0; /* Aligns the menu to the right edge of the button */
+  top: calc(100% + 5px); /* Places it just below the button with a small gap */
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333; /* Default text color */
+  transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth transition */
+}
+
+
+.dropdown-menu a:hover {
+  color: #4D2C61; /* Hover color */
+  text-decoration: underline; /* Underline on hover */
+  background-color: #f2f2f2; /* Optional: Adds a subtle background change on hover */
+}
+
+
+.login-container {
+  position: relative;
+  display: inline-block; /* Ensures proper alignment of the button and dropdown */
+}
+

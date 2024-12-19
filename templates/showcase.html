@@ -3,26 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Page</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>{{ user.full_name }}'s Portfolio</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_showcase.css') }}">
 </head>
 <body>
   <!-- Navbar -->
   <nav class="navbar">
-      <a href="/home">
-          <div class="logo">PORTFOLIOGY</div>
-      </a>
-
-      <ul class="nav-links">
+    <a href="/home">
+      <div class="logo">PORTFOLIOGY</div>
+    </a>
+    <ul class="nav-links">
       <li><a href="/home">Home</a></li>
       <li><a href="/home#about">About</a></li>
       <li><a href="/search">Create CV</a></li>
-      <li><a href="/home#faq" class="nav-links">FAQ</a></li>
+      <li><a href="/home#faq">FAQ</a></li>
       <li><a href="/showcase">Showcase</a></li>
     </ul>
-    <a href="/login">
-        <button class="login-btn">Login</button>
-    </a>
+    <div class="login-container">
+      <button class="login-btn">Welcome, {{ user.full_name }}</button>
+      <div id="dropdown-menu" class="dropdown-menu">
+        <a href="/logout" class="logout-link">Logout</a>
+      </div>
+    </div>
   </nav>
 
   <main>
@@ -30,107 +32,96 @@
     <section class="hero" id="about">
       <div class="hero-content">
         <div>
-          <h1>Hi, I’m Alex 👋</h1>
+          <h1>Hi, I’m {{ user.full_name }} 👋</h1>
           <p>
-            Hi! I’m Alex Hart, a digital creator with a passion for designing intuitive user experiences and developing responsive web applications.
-            From e-commerce platforms to personal portfolio sites, my projects blend aesthetics with functionality.
+            {{ personal_details.bio if personal_details and personal_details.bio else "Welcome to my portfolio page! I design and build digital experiences." }}
           </p>
           <div class="hero-details">
-            <p>📍 Yerevan, Armenia</p>
-            <p>🟢 Available for new projects</p>
+            <p>📍 {{ personal_details.city }}, {{ personal_details.country }} </p>
+            <p>🟢 {{ personal_details.status if personal_details else 'Available for projects' }}</p>
           </div>
         </div>
-        <img src="profile.jpg" alt="Alex Hart" class="profile-pic">
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about">
-      <h2>About me</h2>
-      <div class="about-content">
-        <img src="profile.jpg" alt="Alex Hart" class="profile-pic">
-        <p>
-          Curious about me? Here you have it: With a strong foundation in both front-end and back-end development,
-          I specialize in crafting user-centric applications that are visually engaging, functional, and accessible.
-          My journey began with a fascination for how well-designed digital tools can simplify people’s lives.
-        </p>
+        <img src="{{ personal_details.profile_pic if personal_details and personal_details.profile_pic else url_for('static', filename='default-profile.jpg') }}"
+             alt="{{ user.full_name }}" class="profile-pic">
       </div>
     </section>
 
     <!-- Education Section -->
+    {% if education %}
     <section class="education" id="education">
       <h2>Education</h2>
       <ul>
-        <li><strong>2010 - 2019:</strong> Secondary school named after Razmik Amyan</li>
-        <li><strong>2017 - 2021:</strong> Tumo Center Creative Technologies</li>
-        <li><strong>2019 - 2022:</strong> Quantum Collage</li>
-        <li><strong>2022 - Present:</strong> French University Computer Science degree</li>
-        <li><strong>2020 - Present:</strong> Ardy Academy</li>
+        {% for edu in education %}
+          <li><strong>{{ edu.start_date }} - {{ edu.end_date }}:</strong> {{ edu.institution }} - {{ edu.degree }}</li>
+        {% endfor %}
       </ul>
     </section>
+    {% endif %}
 
     <!-- Skills Section -->
+    {% if cv and cv.skills %}
     <section class="skills" id="skills">
       <h2>Skills</h2>
       <div class="skills-container">
-        <span>JavaScript</span>
-        <span>Python</span>
-        <span>React</span>
-        <span>HTML/CSS</span>
-        <span>Flask</span>
-        <span>SQL</span>
-        <span>Git</span>
-        <span>C#</span>
+        {% for skill in cv.skills.split(',') %}
+          <span class="skill-tag">{{ skill.strip() }}</span>
+        {% endfor %}
       </div>
     </section>
+    {% endif %}
 
     <!-- Experience Section -->
+    {% if employments %}
     <section class="experience" id="experience">
       <h2>Experience</h2>
+      {% for employment in employments %}
       <div class="experience-card">
-        <h3>Lead Developer for E-commerce Platform</h3>
-        <p><strong>Upwork</strong></p>
-        <p>Nov 2021 - Present</p>
-        <p>Developed and launched an e-commerce platform enabling online sales and inventory tracking.</p>
+        <h3>{{ employment.title }}</h3>
+        <p><strong>{{ employment.company }}</strong></p>
+        <p>{{ employment.start_date }} - {{ employment.end_date }}</p>
+        <p>📍 {{ employment.location }}</p>
+        {% if employment.description %}
+        <p>{{ employment.description }}</p>
+        {% endif %}
       </div>
-      <div class="experience-card">
-        <h3>UI/UX Designer for Portfolio Builder Tool</h3>
-        <p><strong>Upwork</strong></p>
-        <p>Jul 2021 - Oct 2021</p>
-        <p>Collaborated with a team to design and build a customizable portfolio builder for creative professionals.</p>
-      </div>
-      <div class="experience-card">
-        <h3>Full-Stack Developer for Nonprofit Website</h3>
-        <p><strong>Upwork</strong></p>
-        <p>Dec 2015 - May 2017</p>
-        <p>Volunteered as a developer to modernize the nonprofit’s website, improving community engagement.</p>
-      </div>
+      {% endfor %}
     </section>
+    {% endif %}
 
-    <!-- Work Section -->
-    <section class="work" id="work">
-      <h2>Work</h2>
-      <div class="work-project">
-        <h3>Personal Finance Tracker</h3>
-        <p>A web-based application to help users track expenses and manage budgets with financial trends.</p>
-        <p><strong>Technologies:</strong> Python, Flask, JavaScript</p>
+    <!-- Projects Section -->
+    {% if projects %}
+    <section class="projects" id="projects">
+      <h2>Projects</h2>
+      {% for project in projects %}
+      <div class="project-card">
+        <h3>{{ project.name }}</h3>
+        <p>{{ project.description }}</p>
+        <p><strong>Technologies:</strong> {{ project.technologies }}</p>
+        {% if project.link %}
+          <a href="{{ project.link }}" target="_blank">View Project</a>
+        {% endif %}
       </div>
+      {% endfor %}
     </section>
+    {% endif %}
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
       <h2>Get in Touch</h2>
-      <p>Email: traktoristsugar99@gmail.com</p>
-      <p>Phone: +37493107415</p>
+      <p>Email: {{ personal_details.email if personal_details else 'Not provided' }}</p>
+      <p>Phone: {{ personal_details.phone if personal_details else 'Not provided' }}</p>
       <div class="social-icons">
-        <a href="#">LinkedIn</a>
-        <a href="#">Twitter</a>
-        <a href="#">Facebook</a>
+        {% if websites %}
+          {% for site in websites %}
+            <a href="{{ site.url }}" target="_blank">{{ site.label }}</a>
+          {% endfor %}
+        {% else %}
+          <p>No external links available.</p>
+        {% endif %}
       </div>
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
-

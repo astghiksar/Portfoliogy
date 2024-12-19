@@ -13,8 +13,18 @@
       <li><a href="/home#faq" class="nav-links">FAQ</a></li>
       <li><a href="/showcase">Showcase</a></li>
     </ul>
-    <a href="/login">
-        <button class="login-btn">Login</button>    </a>
+    <div class="login-container">
+        {% if full_name %}
+            <!-- Show Welcome button and dropdown when logged in -->
+            <button class="login-btn" onclick="toggleDropdown()">Welcome, {{ full_name }}</button>
+            <div id="dropdown-menu" class="dropdown-menu">
+                <a href="/logout" class="logout-link">Logout</a>
+            </div>
+        {% else %}
+            <!-- Login button when not logged in -->
+            <a href="/login"><button class="login-btn">Login</button></a>
+        {% endif %}
+    </div>
   </nav>
 
   <main class="template-section">
@@ -35,7 +45,10 @@
             <span class="color-dot green"></span>
           <span class="color-dot blue"></span>
             <span class="color-dot purple"></span>
-        </div>            <a href="/create2"><button class="view-button">View</button></a>
+                <br>
+                <br>
+
+        </div>            <a href="{{ url_for('view_template') }}" class="view-button">View</a>
       </div>
         <div class="template-card creative">
         <img src="{{ url_for('static', filename='images/template2.png') }}" alt="Template 2">
@@ -44,7 +57,7 @@
                 <span class="color-dot green"></span>
           <span class="color-dot blue"></span>
                 <span class="color-dot purple"></span>
-        </div>          <a href="/create2"><button class="view-button">View</button></a>
+        </div>          <a href="{{ url_for('view_template') }}" class="view-button">View</a>
       </div>
         <div class="template-card pr">
         <img src="{{ url_for('static', filename='images/template3.png') }}" alt="Template 3">
@@ -53,7 +66,7 @@
                 <span class="color-dot green"></span>
           <span class="color-dot blue"></span>
                 <span class="color-dot purple"></span>
-        </div>          <a href="/create2"><button class="view-button">View</button></a>
+        </div>          <a href="{{ url_for('view_template') }}" class="view-button">View</a>
       </div>
       <!-- Add more templates as needed -->
     </div>

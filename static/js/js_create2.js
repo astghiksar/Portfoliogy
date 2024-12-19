@@ -1,10 +1,8 @@
 // Form submission
-document.querySelector('.cv-form').addEventListener('submit', (e) => {
-  e.preventDefault();
-  alert('Your CV has been saved successfully!');
-});
-
-// Add More functionality
+// document.querySelector('.cv-form').addEventListener('submit', (e) => {
+//   e.preventDefault();
+//   alert('Your CV has been saved successfully!');
+// });
 
 //Employment
 document.addEventListener('DOMContentLoaded', () => {
@@ -152,47 +150,47 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //Skills
-document.addEventListener('DOMContentLoaded', () => {
+// document.addEventListener('DOMContentLoaded', () => {
+//
+//   const skillSection = document.querySelector('section:nth-of-type(6)');
+//   const addSkillButton = skillSection.querySelector('.add-more3');
+//   let removeSkillButton = skillSection.querySelector('.remove-skill');
+//
+//   function createSkillFields() {
+//     const newSkillGroup = document.createElement('div');
+//     newSkillGroup.className = 'dynamic-group';
+//     newSkillGroup.innerHTML = `
+//         <div class="form-group">
+//           <input type="text" name="dynamic_skills[]" placeholder="Skill" />
+//         </div>
+//         <br>
+//     `;
+//
+//     skillSection.appendChild(newSkillGroup);
+//     removeSkillButton.style.display = 'inline-block'; // Show the remove button
+//   }
+//
+//   addSkillButton.addEventListener('click', () => {
+//     createSkillFields();
+//   });
+//
+//   removeSkillButton.addEventListener('click', () => {
+//     const dynamicGroups = skillSection.querySelectorAll('.dynamic-group');
+//     if (dynamicGroups.length > 0) {
+//       dynamicGroups[dynamicGroups.length - 1].remove();
+//
+//       if (skillSection.querySelectorAll('.dynamic-group').length === 0) {
+//         removeSkillButton.style.display = 'none';
+//       }
+//     }
+//   });
+//
+//   if (!skillSection.querySelector('.dynamic-group')) {
+//     removeSkillButton.style.display = 'none';
+//   }
+//
+// });
 
-  const skillSection = document.querySelector('section:nth-of-type(6)');
-  const addSkillButton = skillSection.querySelector('.add-more3');
-  let removeSkillButton = skillSection.querySelector('.remove-skill');
-
-
-  function createSkillFields() {
-    const newSkillGroup = document.createElement('div');
-    newSkillGroup.className = 'dynamic-group';
-    newSkillGroup.innerHTML = `
-        <div class="form-group">
-          <input type="text" placeholder="Skill" />
-          
-        </div>
-        <br>
-    `;
-
-    skillSection.appendChild(newSkillGroup);
-    removeSkillButton.style.display = 'inline-block'; // Show the remove button
-  }
-
-  addSkillButton.addEventListener('click', () => {
-    createSkillFields();
-  });
-
-  removeSkillButton.addEventListener('click', () => {
-    const dynamicGroups = skillSection.querySelectorAll('.dynamic-group');
-    if (dynamicGroups.length > 0) {
-      dynamicGroups[dynamicGroups.length - 1].remove();
-
-      if (skillSection.querySelectorAll('.dynamic-group').length === 0) {
-        removeSkillButton.style.display = 'none';
-      }
-    }
-  });
-
-  if (!skillSection.querySelector('.dynamic-group')) {
-    removeSkillButton.style.display = 'none';
-  }
-});
 
 //link
 document.addEventListener('DOMContentLoaded', () => {

@@ -19,14 +19,24 @@
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#footer">Showcase</a></li>
     </ul>
-    <a href="/login">
-        <button class="login-btn">Login</button>
-    </a>
+    <div class="login-container">
+        {% if full_name %}
+            <!-- Show Welcome button and dropdown when logged in -->
+            <button class="login-btn" onclick="toggleDropdown()">Welcome, {{ full_name }}</button>
+            <div id="dropdown-menu" class="dropdown-menu">
+                <a href="/logout" class="logout-link">Logout</a>
+            </div>
+        {% else %}
+            <!-- Login button when not logged in -->
+            <a href="/login"><button class="login-btn">Login</button></a>
+        {% endif %}
+    </div>
   </nav>
   <br>
   <br>
+<form class="cv-form" method="POST" action="{{ url_for('create_cv') }}">
 
-  <main class="form-section">
+  <form class="form-section">
     <h1>Untitled <span class="edit-icon">✎</span></h1>
 
     <form class="cv-form">
@@ -36,30 +46,30 @@
           <br>
           <br>
         <div class="form-group">
-          <input type="text" placeholder="Job Title" />
+          <input type="text" name="job_title" placeholder="Job Title" />
           <div class="photo-upload">
             <img src="{{ url_for('static', filename='images/avatar.jpg') }}" alt="AAA" width="80" height="80">
             <button type="button">Upload photo</button>
           </div>
         </div>
         <div class="form-group">
-          <input type="text" placeholder="First Name" />
-          <input type="email" placeholder="Email" />
+          <input type="text" name="first_name" placeholder="First Name" />
+          <input type="email" name="email" placeholder="Email" />
         </div>
         <div class="form-group">
-          <input type="text" placeholder="Last Name" />
-          <input type="text" placeholder="Phone" />
+          <input type="text" name="last_name" placeholder="Last Name" />
+          <input type="text" name="phone" placeholder="Phone" />
         </div>
         <div class="form-group">
-          <input type="text" placeholder="Country" />
-          <input type="text" placeholder="City" />
+          <input type="text" name="country" placeholder="Country" />
+          <input type="text" name="city" placeholder="City" />
         </div>
       </section>
 
       <!-- Professional Summary -->
       <section>
         <h2>Professional Summary</h2>
-        <textarea placeholder="Write a 4-6 sentence summary about how great you are..."></textarea>
+        <textarea name="summary" placeholder="Write a 4-6 sentence summary about how great you are..."></textarea>
         <p class="hint">Recruiter tip: write 400-600 characters to increase interview chances</p>
       </section>
 
@@ -70,15 +80,15 @@
             <button type="button" class="remove" style="display: none;">- Remove employment</button>
             <!-- Static fields -->
             <div class="form-group">
-                <input type="text" placeholder="Title/Position" />
-                <input type="text" placeholder="Company" />
+                <input type="text" name="title_position" placeholder="Title/Position" />
+                <input type="text" name="company" placeholder="Company" />
             </div>
               <div class="form-group">
-                <input type="date" placeholder="Start date" />
-                <input type="date" placeholder="End date" />
+                <input type="date" name="emp_start_date" placeholder="Start date" />
+                <input type="date" name="emp_end_date" placeholder="End date" />
               </div>
               <div class="form-group">
-                <input type="text" placeholder="Location" />
+                <input type="text" name="location" placeholder="Location" />
               </div>
             <br>
             <br>
@@ -93,12 +103,12 @@
         <button type="button" class="add-more1">+ Add education</button>
           <button type="button" class="remove-education" style="display: none;">- Remove education</button>
         <div class="form-group">
-          <input type="text" placeholder="Degree(s)" />
-          <input type="text" placeholder="Name of school/institution" />
+          <input type="text" name="degree" placeholder="Degree(s)" />
+          <input type="text" name="school_name" placeholder="Name of school/institution" />
         </div>
         <div class="form-group">
-          <input type="date" placeholder="Start date" />
-          <input type="date" placeholder="End date" />
+          <input type="date" name="edu_start_date" placeholder="Start date" />
+          <input type="date" name="edu_end_date" placeholder="End date" />
         </div>
           <br>
           <br>
@@ -110,8 +120,8 @@
         <button type="button" class="add-more2">+ Add language</button>
           <button type="button" class="remove-language" style="display: none;">- Remove language</button>
         <div class="form-group">
-          <input type="text" placeholder="Language" />
-          <input type="text" placeholder="Level" />
+          <input type="text" name="language" placeholder="Language" />
+          <input type="text" name="level" placeholder="Level" />
         </div>
           <br>
       </section>
@@ -136,8 +146,8 @@
         <button type="button" class="add-more4">+ Add link</button>
           <button type="button" class="remove-link" style="display: none;">- Remove link</button>
         <div class="form-group">
-          <input type="text" placeholder="Label (e.g., LinkedIn)" />
-          <input type="url" placeholder="Link" />
+          <input type="text" name="label" placeholder="Label (e.g., LinkedIn)" />
+          <input type="url" name="link" placeholder="Link" />
         </div>
           <br>
       </section>
@@ -145,9 +155,12 @@
       <!-- Submit -->
       <button type="submit" class="submit-btn">Done</button>
     </form>
-  </main>
+  </form>
+</form>
+
 
   <script src="{{ url_for('static', filename='js/js_create2.js') }}"></script>
+
 </body>
 </html>
 

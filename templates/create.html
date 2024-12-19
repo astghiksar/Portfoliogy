@@ -19,9 +19,18 @@
       <li><a href="/home#faq" class="nav-links">FAQ</a></li>
       <li><a href="/showcase">Showcase</a></li>
     </ul>
-    <a href="/login">
-        <button class="login-btn">Login</button>
-    </a>
+    <div class="login-container">
+        {% if full_name %}
+            <!-- Show Welcome button and dropdown when logged in -->
+            <button class="login-btn" onclick="toggleDropdown()">Welcome, {{ full_name }}</button>
+            <div id="dropdown-menu" class="dropdown-menu">
+                <a href="/logout" class="logout-link">Logout</a>
+            </div>
+        {% else %}
+            <!-- Login button when not logged in -->
+            <a href="/login"><button class="login-btn">Login</button></a>
+        {% endif %}
+    </div>
   </nav>
 
   <main class="hero-section">
