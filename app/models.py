@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(200), nullable=False)
 
-    # One-to-Many relationship: A user can have multiple CVs
+
     cvs = db.relationship('CV', backref='user', lazy=True)
 
 
@@ -22,11 +22,11 @@ class CV(db.Model):
     job_title = db.Column(db.String(100))
     summary = db.Column(db.Text)
 
-    # Relationships to other tables
     personal_details = db.relationship('PersonalDetails', backref='cv', uselist=False)
     employments = db.relationship('Employment', backref='cv', lazy=True)
     education = db.relationship('Education', backref='cv', lazy=True)
     languages = db.relationship('Languages', backref='cv', lazy=True)
+    skills = db.relationship('Skills', backref='cv', lazy=True)
     websites = db.relationship('Websites', backref='cv', lazy=True)
 
 
@@ -65,6 +65,12 @@ class Languages(db.Model):
     cv_id = db.Column(db.Integer, db.ForeignKey('cv.id'), nullable=False)
     language = db.Column(db.String(100), nullable=False)
     level = db.Column(db.String(50))
+
+class Skills(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    cv_id = db.Column(db.Integer, db.ForeignKey('cv.id'), nullable=False)
+    skill = db.Column(db.String(100), nullable=False)
+
 
 
 class Websites(db.Model):
