@@ -1,4 +1,3 @@
-/* General Styles */
 * {
   margin: 0;
   padding: 0;
@@ -9,16 +8,12 @@ body {
   font-family: 'Arial', sans-serif;
   color: #ffffff;
   background-color: #0d0729;
+  line-height: 1.5;
 }
 
 a {
   text-decoration: none;
   color: inherit;
-}
-
-h1, h2 {
-  color: #ffffff;
-  margin-bottom: 10px;
 }
 
 /* Navbar Styles */
@@ -76,218 +71,165 @@ h1, h2 {
   color: #fff;
 }
 
-
-/* Form Section */
 .form-section {
-  padding: 30px;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #0d0729;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.cv-form {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+.form-section h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
 }
 
-section {
-  margin-bottom: 20px;
+.edit-icon {
+    font-size: 0.8em;
+    color: #7D4AED;
+    cursor: pointer;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #ffffff;
+    margin-bottom: 10px;
 }
 
 .form-group {
-  display: flex;
-  gap: 20px;
-  margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-/* Job Title Field (Smaller) */
-input[placeholder="Job Title"] {
-  width: 50%;
-}
-
-/* Professional Summary Field (Larger) */
+.form-group input,
 textarea {
-  height: 150px;
-  width: 100%;
-}
-
-input, textarea, button {
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  background-color: #1f2633;
-  color: #c9d1d9;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #7D4AED;
+    border-radius: 5px;
+    background-color: #0d0729;
+    color: white;
 }
 
 textarea {
-  resize: none;
+    min-height: 80px;
+    resize: none;
 }
 
-/* Add More Buttons (Reverted Style) */
-button.add-more {
-  background-color: transparent;
-  color: #6e44ff;
-  font-size: 14px;
-  cursor: pointer;
+button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+.cv-form textarea {
+    padding: 15px;
+    border: 1px solid #7D4AED;
+    border-radius: 5px;
+    background-color: #0d0729;
+    color: white;
+    font-size: 1.1em; /* Slightly larger font size */
+    min-height: 200px; /* Bigger height */
+    width: 100%; /* Full width */
+    resize: none;
 }
 
-button.add-more:hover {
-  text-decoration: underline;
-}
-button.remove {
-  background-color: transparent;
-  color: #6e44ff;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-button.remove:hover {
-  text-decoration: underline;
-}
-
-
-button.add-more1 {
-  background-color: transparent;
-  color: #6e44ff;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-button.add-more1:hover {
-  text-decoration: underline;
-}
-button.remove-education {
-  background-color: transparent;
-  color: #6e44ff;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-button.remove-education:hover {
-  text-decoration: underline;
-}
-
-
-button.add-more2 {
-  background-color: transparent;
-  color: #6e44ff;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-button.add-more2:hover {
-  text-decoration: underline;
-}
-button.remove-language {
-  background-color: transparent;
-  color: #6e44ff;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-button.remove-language:hover {
-  text-decoration: underline;
-}
-
-button.add-more3 {
-  background-color: transparent;
-  color: #6e44ff;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-button.add-more3:hover {
-  text-decoration: underline;
-}
-button.remove-skill {
-  background-color: transparent;
-  color: #6e44ff;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-button.remove-skill:hover {
-  text-decoration: underline;
-}
-
-
-button.add-more4 {
-  background-color: transparent;
-  color: #6e44ff;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-button.add-more4:hover {
-  text-decoration: underline;
-}
+button.add-more,
+button.remove,
+button.add-more1,
+button.remove-education,
+button.add-more2,
+button.remove-language,
+button.add-more3,
+button.remove-skill,
+button.add-more4,
 button.remove-link {
-  background-color: transparent;
-  color: #6e44ff;
-  font-size: 14px;
-  cursor: pointer;
+    background-color: #7D4AED;
+    color: white;
+    font-size: 0.9em;
 }
 
-button.remove-link:hover {
-  text-decoration: underline;
-}
-/* Upload Photo Button */
-.photo-upload{
-  float: right;
-  gap: 20px;
+button.add-more:hover,
+button.remove:hover {
+    background-color: white;
+    color: #7D4AED;
 }
 
-.photo-upload {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px; /* Adds space between the image and the button */
-}
-
-.photo-upload button {
-  background-color: #6e44ff;
-  color: #ffffff;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-.photo-upload button:hover {
-  background-color: #5936cc;
-  transform: scale(1.1);
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 button.skill {
-  background-color: #29274a;
-  color: #ffffff;
-  padding: 10px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s;
+    background-color: #7D4AED;
+    color: white;
+    border: 1px solid #7D4AED;
+    padding: 5px 10px;
+    font-size: 0.9em;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 button.skill:hover {
-  background-color: #4a28bf;
-  transform: scale(1.1);
+    background-color: white;
+    color: #7D4AED;
 }
-
-.skill.selected {
-  background-color: #6e44ff;
-  border: none;             /* Optional: remove the border */
-}
-
 
 .submit-btn {
-  background-color: #6e44ff;
-  color: #ffffff;
-  padding: 15px;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+    display: block;
+    width: 100%;
+    background-color: #7D4AED;
+    color: white;
+    padding: 10px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
 }
 
 .submit-btn:hover {
-  background-color: #5936cc;
-  transform: scale(1.05);
+    background-color: white;
+    color: #7D4AED;
 }
 
+/* Additional styling for sections */
+.hint {
+    font-size: 0.9em;
+    color: #7D4AED;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+.photo-upload {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.photo-upload img {
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.photo-upload button {
+    background-color: #7D4AED;
+    color: white;
+    font-size: 0.9em;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: none;
+}
+
+.photo-upload button:hover {
+    background-color: white;
+    color: #7D4AED;
+}
