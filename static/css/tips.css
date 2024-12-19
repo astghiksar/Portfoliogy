@@ -1,13 +1,13 @@
-/* General Styles */
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #0b0d3c; /* Background color matching the image */
+  background-color: #0b0d3c; 
   color: #ffffff;
 }
 
-/* Section Styles */
+
 .expert-tips {
   text-align: center;
   padding: 50px 20px;
@@ -19,18 +19,17 @@ body {
   color: #ffffff;
 }
 
-/* Cards Container */
 .cards-container {
   display: flex;
-  justify-content: center; /* Center the cards horizontally */
-  gap: 20px; /* Space between cards */
-  padding: 20px; /* Padding around the container */
+  justify-content: center; 
+  gap: 20px; 
+  padding: 20px; 
 
 }
 
-/* Cards */
+
 .card {
-  width: 300px; /* Set a fixed width for the cards */
+  width: 300px; 
   background-color: #1e1e1e;
   color: #ffffff;
   text-align: center;
@@ -40,10 +39,10 @@ body {
 }
 
 .card:hover {
-  transform: scale(1.05); /* Slight scaling effect on hover */
+  transform: scale(1.05); 
 }
 
-/* Title */
+
 .title {
   font-size: 2rem;
   margin-bottom: 20px;
