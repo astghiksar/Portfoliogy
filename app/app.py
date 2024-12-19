@@ -1,17 +1,55 @@
 from flask import Flask, request, render_template, redirect, url_for, session, flash
 import bcrypt
-from datetime import datetime
 from models import db, User, CV, PersonalDetails, Employment, Education, Languages, Websites, Skills
+from flask_mail import Mail, Message
+from itsdangerous import URLSafeTimedSerializer, SignatureExpired
+from datetime import datetime
+
 
 app = Flask(__name__)
 app.secret_key = 'portfolio_key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Astghiksar1@localhost/portfoliogy_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'portfoliogy@gmail.com'
+app.config['MAIL_PASSWORD'] = 'yfnntkrpyhxmlujn'
+
+mail = Mail(app)
+serializer = URLSafeTimedSerializer(app.secret_key)
+
 
 db.init_app(app)
 
 with app.app_context():
     db.create_all()
+@app.route('/reset_password/<token>', methods=['GET', 'POST'])
+def reset_password(token):
+    from itsdangerous import URLSafeTimedSerializer, BadData
+
+    try:
+        serializer = URLSafeTimedSerializer(app.secret_key)
+        email = serializer.loads(token, salt='password-reset-salt', max_age=3600)  # Token expires in 1 hour
+    except BadData:
+        flash('The reset link is invalid or has expired.', 'error')
+        return redirect(url_for('forgot_password'))
+
+    if request.method == 'POST':
+        new_password = request.form.get('password')
+        if not new_password:
+            flash('Please enter a new password.', 'error')
+        else:
+            user = User.query.filter_by(email=email).first()
+            if user:
+                user.password = bcrypt.hashpw(new_password.encode(), bcrypt.gensalt()).decode()
+                db.session.commit()
+                flash('Your password has been updated!', 'success')
+                return redirect(url_for('login'))
+            else:
+                flash('User not found.', 'error')
+
+    return render_template('reset_password.html', token=token)
 
 @app.route('/signup')
 def signup_page():
@@ -225,9 +263,9 @@ def logout():
     session.clear()
     return redirect(url_for('home'))
 
-@app.route('/forgot')
-def forgot():
-    return render_template('forgot_password.html')
+@app.route('/password')
+def password():
+    return render_template('password.html')
 
 if __name__ == '__main__':
     app.run(debug=True),
