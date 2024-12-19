@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Handle Sign-Up Form Submission
   const registerForm = document.getElementById('registerForm');
   if (registerForm) {
     registerForm.addEventListener('submit', async (event) => {
